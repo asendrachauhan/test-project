@@ -1,0 +1,20 @@
+<div>
+  <h1>Real-Time Chat</h1>
+
+  <div>
+    <input [(ngModel)]="newMessage" placeholder="Enter your message" />
+    <button (click)="sendMessage()">{{loading ? 'sending...' : 'send' }}</button>
+  </div>
+
+  <div>
+    <h2>Messages:</h2>
+    <ul>
+      @for (message of messages; track $index) {
+        <li>
+          <div>{{ message.text }}</div>
+          <small>{{ message.sentAt | date:'short' }}</small>
+        </li>
+      }
+    </ul>
+  </div>
+</div>
